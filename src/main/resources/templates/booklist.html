@@ -4,29 +4,40 @@
     <title>BookList</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"  th:href="@{css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" th:href="@{css/style.css}" />
 </head>
 <body>
-	<h1>Books</h1>
-    <table class="table table-striped" >
-		<tr>
-		    <th>Author</th>
-		    <th>Title</th>
-		    <th>ISBN</th>
-		    <th>Year</th>
-		    <th>Price</th>
-		    <th>Category</th>
-		    <th></th>
-		</tr>  
-    	<tr th:each = "book : ${books}">
-    		<td th:text="${book.author}"></td>
-    		<td th:text="${book.title}"></td>
-    		<td th:text="${book.isbn}"></td>
-    		<td th:text="${book.year}"></td>
-    		<td th:text="${book.price}"></td>
-    		<td th:text="${book.category.cName}"></td>
- 		 	<td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td> 		
-    	</tr>
-     </table>
-	 <a href="/add" class="btn btn-success">Add Book</a>    	
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>Book list</h2>
+			</div>
+			<div class="panel-body">
+			    <table class="table table-striped" >
+					<tr>
+					    <th>Author</th>
+					    <th>Title</th>
+					    <th>ISBN</th>
+					    <th>Year</th>
+					    <th>Price</th>
+					    <th>Category</th>
+					    <th></th>
+					</tr>  
+			    	<tr th:each = "book : ${books}">
+			    		<td th:text="${book.author}"></td>
+			    		<td th:text="${book.title}"></td>
+			    		<td th:text="${book.isbn}"></td>
+			    		<td th:text="${book.year}"></td>
+			    		<td th:text="${book.price}"></td>
+			    		<td th:text="${book.category.cName}"></td>
+			 		 	<td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td> 		
+			    	</tr>
+			     </table>
+				 <a href="/add" class="btn btn-success">Add Book</a>
+				 
+				 <a href="/" class="btn btn-info">Back to main menu</a>   
+			</div>
+		</div>
+	</div>
 </body>
 </html>

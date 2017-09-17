@@ -25,6 +25,10 @@ public class BookstoreController {
 	@Autowired
 	private CategoryRepository crepository;
 	
+	@RequestMapping(value="/")
+    public String entryPage() {
+        return "hello";
+    }
 	
 	@RequestMapping(value="/booklist")
     public String Book(Model model) {
